@@ -1,0 +1,131 @@
+.reports {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .reports-filters {
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        
+        label {
+            display: flex;
+            padding: 5px;
+
+            span, input {
+                display: flex;
+                flex: 1;
+            }
+        }
+    }
+
+    .report-title {
+        padding: 15px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .reports-expenses {
+        display: flex;
+        margin-top: 25px;
+        justify-content: stretch;
+
+        ul {
+            display: flex;
+            flex: 0 0 350px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-direction: column;
+
+            li {
+                display: flex;
+                padding: 5px;
+
+                &:nth-child(odd) {
+                    background-color: lightgray;
+
+                    span:last-child {
+                        border-left: 1px solid white;
+                    }
+                }
+
+                span {
+                    display: flex;
+                    flex: 1;
+
+                    &:last-child {
+                        flex: 0 0 30%;
+                        border-left: 1px solid lightgray;
+                        justify-content: end;
+                    }
+                }
+            }
+        }
+    }
+    
+    .reports-orders {
+        display: flex;
+        margin-top: 25px;
+        display: flex;
+        justify-content: stretch;
+        justify-items: stretch;
+        align-items: stretch;
+        align-content: stretch;
+
+        ul {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                display: flex;
+                flex-direction: column;
+
+                &:nth-child(odd) {
+                    background-color: rgba(0,0,0,0.1);
+                }
+
+                .header {
+                    display: flex;
+                    flex: 1;
+                    padding: 5px;
+                    cursor: pointer;
+
+                    span {
+                        display: flex;
+                        padding: 5px 10px;
+                        flex: 0 0 10%;
+
+                        &:nth-child(3) {
+                            flex: 1;
+                        }
+
+                        &:nth-child(5) {
+                            justify-content: end;
+                        }
+                    }
+                }
+
+                .content {
+                    display: flex;
+                    max-height: 0;
+                    transition: all 0.5s ease-in-out;
+                    overflow: hidden;
+
+                    table {
+                        margin: 15px;
+                    }
+
+                    &.shown {
+                        overflow: unset;
+                        max-height: 5000px;
+                    }
+                }
+            }
+        }
+    }
+}
