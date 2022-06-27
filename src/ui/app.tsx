@@ -35,8 +35,12 @@ function HomePageAuth () {
 
   console.log(auth?.user?.UserRole);
 
-  if(auth?.user?.UserRole?.name === "Ventas") {
+  if(auth?.user?.user?.UserRole?.name !== "Ventas") {
     return <Navigate to="/new-order" />
+  }
+  
+  if(auth?.user?.user?.UserRole?.name !== "Compras") {
+    return <Navigate to="/new-purchase" />
   }
 
   return <Navigate to="/reports" />

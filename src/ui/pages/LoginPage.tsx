@@ -39,7 +39,16 @@ const LoginPage = () => {
           <span>Contraseña:</span>
             <input placeholder="Contraseña" type="password" value={user.password} onChange={(e) => {changeUser('password', e.target.value); }} />
           </label>{" "}
-          <button type="submit">Iniciar Sesion</button>
+          <button type="submit" className="btn">Iniciar Sesion</button>
+          <button
+            type="button"
+            className="btn danger"
+            onClick={() => {
+              document.dispatchEvent(new Event('closeApp'));
+            }}
+          >
+            Salir
+          </button>
         </form>
       </div>
     );

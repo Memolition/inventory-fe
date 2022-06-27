@@ -1,7 +1,7 @@
 import React from "react";
 import BreadCrumbs from "../components/breadcrumbs";
 import classNames from "classnames";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import SecondarySidebar from "../components/secondary-sidebar";
 import ProductsPage from "./Settings/ProductsPage";
 import ProvidersPage from "./Settings/ProvidersPage";
@@ -36,11 +36,11 @@ const SettingsPage = () => {
             <main className={ classNames('content') }>
                 <article>
                     <Routes>
-                        <Route index element={<span>Default view</span>} />
                         <Route path="products" element={<ProductsPage />} />
                         <Route path="providers" element={<ProvidersPage />} />
                         <Route path="users" element={<UsersPage />} />
                         <Route path="inventory" element={<InventoryPage />} />
+                        <Route index element={<Navigate to="products" />} />
                     </Routes>
                 </article>
             </main>

@@ -28,7 +28,9 @@
 
 import './styles/index.scss';
 
-console.log('👋 This message is being logged by "renderer.js", included via webpack');
+const w:any = window;
+
+document.addEventListener('closeApp', () => { w.electronAPI.closeApp(); })
 
 import './ui/app';
 

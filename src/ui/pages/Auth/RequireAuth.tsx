@@ -7,15 +7,15 @@ const RequireAuth = ({ children, permission }: { children: JSX.Element, permissi
     const auth:any = useAuth(AuthContext);
     let location = useLocation();
 
-    return children;
+    //return children;
 
     if (!auth.user) {
       return <Navigate to="/login" state={{ from: location }} replace />;
     }
 
     if (
-        auth?.user?.user?.UserRole?.name !== 'Administrador'
-        || (
+        auth?.user?.user?.UserRole?.name !== "Administrador"
+        && (
             !!permission
             && !auth?.user?.user?.UserRole?.RolePermissions.find((allowedPermission:any) => allowedPermission.name === permission)
         )
