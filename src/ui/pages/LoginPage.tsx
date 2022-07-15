@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { AuthContext } from "../app";
+import TagGenerator from "../components/TagGenerator";
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -34,11 +35,12 @@ const LoginPage = () => {
           <label>
             <span>Usuario:</span>
             <input placeholder="Nombre de Usuario" type="text" value={user.name} onChange={(e) => {changeUser('name', e.target.value); }} />
-          </label>{" "}
+          </label>
           <label>
           <span>Contraseña:</span>
             <input placeholder="Contraseña" type="password" value={user.password} onChange={(e) => {changeUser('password', e.target.value); }} />
-          </label>{" "}
+          </label>
+
           <button type="submit" className="btn">Iniciar Sesion</button>
           <button
             type="button"

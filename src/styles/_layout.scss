@@ -13,6 +13,10 @@ body {
             user-select: none;
 }
 
+.row {
+  display: flex;
+}
+
 .wrapper {
   display: flex;
   width: 100vw;
@@ -187,9 +191,7 @@ table {
   flex: 1;
   flex-direction: column;
 
-  .row {
-    display: flex;
-  }
+  
 
   label {
     display: flex;
@@ -788,5 +790,28 @@ table {
   .csv-reader-input {
     visibility: hidden;
     opacity: 0;
+    max-width: 0;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
+.temp-imported-products {
+  width: 100%;
+
+  select,
+    input[type="text"],
+    input[type="password"],
+    input[type="number"] {
+      display: flex;
+      flex: 1;
+      margin: 0;
+      padding: 10px;
+    }
+
+  img {
+    width: 100px;
   }
 }
