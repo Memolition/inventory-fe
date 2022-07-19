@@ -14,7 +14,9 @@ const InventoryItemDetails = ({id}:{id:string}) => {
         });
     }, []);
 
-    return (
+    return !product?.Movements?.length ? (
+        <span>Este producto no tiene movimientos.</span>
+    ) : (
         <table>
             <thead>
                 <tr>

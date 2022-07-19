@@ -21,11 +21,14 @@ const ProductsPage = () => {
     const [newProduct, setNewProduct] = useState(blankProduct);
     const [products, setProducts] = useState([]);
     const [providers, setProviders] = useState([]);
+    const [viewProducts, setViewProducts] = useState([]);
+    const [query, setQuery] = useState("");
 
     useEffect(() => {
         axios.get(`${API_ROOT}/products`)
         .then((data:any) => {
             setProducts(data.data);
+            setViewProducts(data.data);
         });
 
         axios.get(`${API_ROOT}/providers`)
@@ -33,6 +36,18 @@ const ProductsPage = () => {
             setProviders(data.data);
         });
     }, []);
+
+    useEffect(() => {
+        setViewProducts(products.filter((p) => {
+            const querySanitized = query.toLowerCase();
+
+            const nameSearch = p?.name?.toLowerCase()?.indexOf(querySanitized) >= 0;
+            const barcodeSearch = p?.barcode?.toLowerCase()?.indexOf(querySanitized) >= 0;
+            const partNumberSearch = p?.partNumber?.toLowerCase()?.indexOf(querySanitized) >= 0;
+
+            return nameSearch || barcodeSearch || partNumberSearch;
+        }));
+    }, [query]);
 
     const changeNewProduct = (attr:string, val:any) => {
         setNewProduct(prevNewProduct => ({
@@ -101,6 +116,10 @@ const ProductsPage = () => {
                 </form>
             </div>
 
+            <div className='inventory-product-query'>
+                <input placeholder="Buscar Producto" onChange={(e) => { setQuery(e.target.value) }} />
+            </div>
+
             <ul className='inventory-products-list'>
                 <li className='title'>
                     <span>Nombre</span>
@@ -109,7 +128,7 @@ const ProductsPage = () => {
                     <span>Precio Venta</span>
                 </li>
                 {
-                    products.map((product:any, productIndex:number) => (
+                    viewProducts.map((product:any, productIndex:number) => (
                         <InventoryItem product={product} key={`product_item_${productIndex}`} />
                     ))
                 }

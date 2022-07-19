@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import InventoryItemDetails from "../InventoryItemDetails";
+import InventoryItemForm from "../InventoryItemForm";
 
 interface IProps {
     product: any;
@@ -12,7 +13,7 @@ const InventoryItem = ({product}:IProps) => {
     return (
         <li>
             <div
-                className={classNames('header')}
+                className={classNames({'header': true, 'shown': expanded})}
                 onClick={() => {
                     setExpanded((prevExpanded:boolean) => !prevExpanded);
                 }}
@@ -22,10 +23,10 @@ const InventoryItem = ({product}:IProps) => {
                 <span>{ product.buyingPrice }</span>
                 <span>{ product.sellingPrice }</span>
             </div>
-            <div className={classNames({'content': true, 'shown': expanded})}>
-                {
-                    expanded && <InventoryItemDetails id={product.id} />
-                }
+
+            <div className={classNames({'inventory-item-content': true, 'content': true, 'shown': expanded})}>
+                { expanded && <InventoryItemForm product={product} /> }
+                { expanded && <InventoryItemDetails id={product.id} /> }
             </div>
         </li>
     );

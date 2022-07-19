@@ -253,14 +253,6 @@ const ProductsPage = () => {
                             }}
                         />
                     </label>
-                    {
-                        /*
-                        <label>
-                            <input type="checkbox" checked={!!newOrder.differentBillingAddress} onChange={(e) => { changeNewOrder('differentBillingAddress', !newOrder.differentBillingAddress); }} />
-                            Direccion de facturacion diferente
-                        </label>
-                        */
-                    }
                 </form>
             </div>
             <div className={classNames('suggest-new-customer')}>
