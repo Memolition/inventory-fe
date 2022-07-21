@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRightFromBracket, faBagShopping, faFileAlt, faFileCirclePlus, faGear, faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRightFromBracket, faBagShopping, faCoins, faFileAlt, faFileCirclePlus, faGear, faHouse } from '@fortawesome/free-solid-svg-icons';
 import useAuth from "../../../hooks/useAuth";
 import { AuthContext } from "../../app";
 
@@ -23,6 +23,11 @@ const MainSidebar = () => {
                 <li>
                     <Link to="/new-order">
                         <FontAwesomeIcon icon={faFileCirclePlus} />
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/new-expense">
+                        <FontAwesomeIcon icon={faCoins} />
                     </Link>
                 </li>
                 <li>

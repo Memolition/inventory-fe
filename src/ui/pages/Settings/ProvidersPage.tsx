@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { API_ROOT } from '../../../renderer';
 import SelectableList from '../../components/SelectableList';
 import ProviderListItem from '../../components/ProviderListItem';
+import ProviderItem from '../../components/ProviderItem';
 
 const blankProvider = {
     name: '',
@@ -190,10 +191,7 @@ const ProvidersPage = () => {
                 </li>
                 {
                     providers.map((provider:any, providerIndex:number) => (
-                        <ProviderListItem key={`provider_item_${providerIndex}`} provider={provider}>
-                            <SelectableList Title="Lineas" Items={provider.ProviderLines} />
-                            <SelectableList Title="Marcas" Items={provider.ProviderBrands} />
-                        </ProviderListItem>
+                        <ProviderItem key={`provider_item_${providerIndex}`}  provider={provider} lines={providerLines} brands={providerBrands} />
                     ))
                 }
             </ul>

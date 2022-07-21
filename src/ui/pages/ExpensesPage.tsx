@@ -31,13 +31,18 @@ const ExpensesPage = () => {
 
     return (
         <div>
-            <form onSubmit={(e) => {
-                e.preventDefault();
-                persistExpense();
-            }}>
+            <h1>Registrar un nuevo gasto</h1>
+
+            <form
+                className="new-expense-form"
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    persistExpense();
+                }}
+            >
                 <input type="text" placeholder="Nota" onChange={(e) => { changeExpense('note', e.target.value) }} value={newExpense.note} />
                 <input type="text" placeholder="Monto" onChange={(e) => { changeExpense('amount', e.target.value) }} value={newExpense.amount} />
-                <input type="submit" value="Guardar" />
+                <input className="btn" type="submit" value="Guardar" />
             </form>
         </div>
     );

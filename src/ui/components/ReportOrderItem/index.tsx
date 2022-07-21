@@ -19,8 +19,8 @@ const ReportOrderItem = ({order}:IProps) => {
             >
                 <span>{order.id}</span>
                 <span>{order.invoice}</span>
-                <span>{order.Person.tax_id}</span>
-                <span>{order.Person.name}</span>
+                <span>{order?.Person?.tax_id}</span>
+                <span>{order?.Person?.name}</span>
                 <span>{readableDate(order.createdAt)}</span>
                 <span>Q. {
                             order?.Movements?.reduce((prevVal:any, currentProduct:any) => prevVal + (parseFloat(currentProduct.Product.sellingPrice) * currentProduct.quantity), 0.00).toFixed(2)
